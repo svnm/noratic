@@ -20,7 +20,8 @@
 }
 
 .title,
-.description {
+.title,
+.extract {
   margin-bottom: 2rem;
 }
 /*  End ––––––––––––––––––––––––––––––––––––––––––– */
@@ -52,6 +53,11 @@
 .post {
   border-bottom: 1px solid #ddd;
 }
+
+.post .extract {
+  
+}
+
 /*  End ––––––––––––––––––––––––––––––––––––––––––– */
 
 

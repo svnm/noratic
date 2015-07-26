@@ -10,10 +10,10 @@ import Home from './components/Home'
 let routes = (  
   <Route name='layout' path='/' handler={Layout}>
   	<DefaultRoute name='home' handler={Home} />
-    <Route name='post' path='/post/:id?' handler={Post} />
+    <Route name='post' path='/post/:title?' handler={Post} />
   </Route>
 );
 
-Router.run(routes, function (Handler) {  
+Router.run(routes, Router.HistoryLocation, function (Handler) {  
   React.render(<Handler/>, document.getElementById('app'));
 });

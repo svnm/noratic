@@ -64,7 +64,7 @@
 
 	var _componentsPost2 = _interopRequireDefault(_componentsPost);
 
-	var _componentsHome = __webpack_require__(218);
+	var _componentsHome = __webpack_require__(219);
 
 	var _componentsHome2 = _interopRequireDefault(_componentsHome);
 
@@ -72,10 +72,10 @@
 	  _reactRouter.Route,
 	  { name: 'layout', path: '/', handler: _componentsLayout2['default'] },
 	  _react2['default'].createElement(_reactRouter.DefaultRoute, { name: 'home', handler: _componentsHome2['default'] }),
-	  _react2['default'].createElement(_reactRouter.Route, { name: 'post', path: '/post/:id?', handler: _componentsPost2['default'] })
+	  _react2['default'].createElement(_reactRouter.Route, { name: 'post', path: '/post/:title?', handler: _componentsPost2['default'] })
 	);
 
-	_reactRouter2['default'].run(routes, function (Handler) {
+	_reactRouter2['default'].run(routes, _reactRouter2['default'].HistoryLocation, function (Handler) {
 	  _react2['default'].render(_react2['default'].createElement(Handler, null), document.getElementById('app'));
 	});
 
@@ -23565,6 +23565,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Preview = __webpack_require__(218);
+
+	var _Preview2 = _interopRequireDefault(_Preview);
+
 	var Post = (function (_React$Component) {
 	  _inherits(Post, _React$Component);
 
@@ -23578,8 +23582,12 @@
 	  _createClass(Post, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var id = this.props.params.id;
-	      this.setState({ message: id });
+	      var post = {};
+	      post.id = this.props.params.id;
+	      post.title = this.props.params.title;
+	      post.extract = this.props.params.extract;
+
+	      this.setState({ post: post });
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -23596,12 +23604,9 @@
 	      return _react2['default'].createElement(
 	        'div',
 	        { className: "post" },
-	        'Post',
-	        _react2['default'].createElement(
-	          'span',
-	          null,
-	          this.state.message
-	        )
+	        _react2['default'].createElement(_Preview2['default'], { title: this.state.title,
+	          id: this.state.id,
+	          extract: this.state.extract })
 	      );
 	    }
 	  }]);
@@ -23613,75 +23618,6 @@
 
 /***/ },
 /* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Preview = __webpack_require__(219);
-
-	var _Preview2 = _interopRequireDefault(_Preview);
-
-	var _posts = __webpack_require__(220);
-
-	var _posts2 = _interopRequireDefault(_posts);
-
-	var Home = (function (_React$Component) {
-	  _inherits(Home, _React$Component);
-
-	  function Home() {
-	    _classCallCheck(this, Home);
-
-	    _get(Object.getPrototypeOf(Home.prototype), 'constructor', this).call(this);
-	    this.state = { posts: _posts2['default'] };
-	  }
-
-	  _createClass(Home, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {}
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {}
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var rows = this.state.posts.map(function (p, i) {
-
-	        return _react2['default'].createElement(_Preview2['default'], { title: p.title, id: p.id, extract: p.extract });
-	      });
-
-	      return _react2['default'].createElement(
-	        'div',
-	        { id: "home" },
-	        rows
-	      );
-	    }
-	  }]);
-
-	  return Home;
-	})(_react2['default'].Component);
-
-	module.exports = Home;
-
-/***/ },
-/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23735,12 +23671,14 @@
 	          ),
 	          _react2['default'].createElement(
 	            'p',
-	            { className: "description" },
+	            { className: "extract" },
 	            this.props.extract
 	          ),
 	          _react2['default'].createElement(
 	            Link,
-	            { className: "button button-primary", to: 'post', params: { id: this.props.id } },
+	            { className: "button button-primary",
+	              to: 'post',
+	              params: { id: this.props.id, title: this.props.title } },
 	            'more'
 	          )
 	        )
@@ -23772,6 +23710,75 @@
 	module.exports = exports['default'];
 
 /***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Preview = __webpack_require__(218);
+
+	var _Preview2 = _interopRequireDefault(_Preview);
+
+	var _posts = __webpack_require__(220);
+
+	var _posts2 = _interopRequireDefault(_posts);
+
+	var Home = (function (_React$Component) {
+	  _inherits(Home, _React$Component);
+
+	  function Home() {
+	    _classCallCheck(this, Home);
+
+	    _get(Object.getPrototypeOf(Home.prototype), 'constructor', this).call(this);
+	    this.state = { posts: _posts2['default'] };
+	  }
+
+	  _createClass(Home, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {}
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {}
+	  }, {
+	    key: 'render',
+	    value: function render() {
+
+	      var previewList = this.state.posts.map(function (p, i) {
+
+	        return _react2['default'].createElement(_Preview2['default'], { title: p.title, id: p.id, extract: p.extract });
+	      });
+
+	      return _react2['default'].createElement(
+	        'div',
+	        { id: "home" },
+	        previewList
+	      );
+	    }
+	  }]);
+
+	  return Home;
+	})(_react2['default'].Component);
+
+	module.exports = Home;
+
+/***/ },
 /* 220 */
 /***/ function(module, exports) {
 
@@ -23779,7 +23786,7 @@
 
 	var data = [{
 	  "id": 0,
-	  "title": "Install docker on Ubuntu AWS and setup a container",
+	  "title": "Install docker on Ubuntu AWS",
 	  "extract": "Install Docker on an EC2 on AWS launch an EC2 linux Ubuntu instance Connect to it via ssh guide here sudo apt-get update sudo apt-get -y install docker.io Link and fix paths sudo ln -sf /usr/bin/docker.",
 	  "content": ""
 	}, {
@@ -23794,8 +23801,8 @@
 	  "content": ""
 	}, {
 	  "id": 3,
-	  "title": "ES6 Promises",
-	  "extract": "An example of using promises to extend the xhr request how to convert callback API to promises A promise is always in either one of three mutually exclusive states: Before the result is ready, the promise is",
+	  "title": "Tape and Testling",
+	  "extract": "Make a new directory for our demo module called max-by mkdir max-by cd max-by Now we'll write an index.js with the max-by function: module.exports = function (xs, f) { return xs.reduce(function (max",
 	  "content": ""
 	}];
 

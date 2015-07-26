@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Preview from './Preview'
+
 class Post extends React.Component {
 
   constructor() {
@@ -8,8 +10,12 @@ class Post extends React.Component {
   }
 
   componentDidMount() {
-    var id = this.props.params.id
-    this.setState({ message: id })
+    let post = {}
+    post.id = this.props.params.id
+    post.title = this.props.params.title
+    post.extract = this.props.params.extract
+
+    this.setState({ post: post })
   }
 
   componentWillUnmount() {
@@ -23,8 +29,9 @@ class Post extends React.Component {
 
     return (
       <div className="post">
-        Post
-        <span>{this.state.message}</span>
+        <Preview title={this.state.title} 
+                 id={this.state.id} 
+                 extract={this.state.extract} />
       </div>
     );
 

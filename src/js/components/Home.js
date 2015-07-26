@@ -21,8 +21,7 @@ class Home extends React.Component {
 
   render() {
 
-
-    let rows = this.state.posts.map( (p, i) => {
+    let previewList = this.state.posts.map( (p, i) => {
 
       return (
             <Preview title={p.title} id={p.id} extract={p.extract} />
@@ -33,7 +32,7 @@ class Home extends React.Component {
     return (
 
       <div id="home">        
-        { rows }
+        { previewList }
       </div>
 
     )
