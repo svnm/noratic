@@ -17,7 +17,7 @@ add your markdown posts to `posts-md/`
 
 customize the layouts in `components/`
 
-add some styles and JavaScript... in `public/` noratic uses CSS Skeleton for its base styles
+add some styles and JavaScript in `public/` noratic uses CSS Skeleton for its base styles
 
 Your site runs as a minimal node/express app. You can add any additional middleware if you like. noratic routes client side with react router.
 
