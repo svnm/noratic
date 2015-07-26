@@ -1,21 +1,23 @@
 import React from 'react'
-
-import Preview from './Preview'
+import posts from '../posts'
+import Content from './Content'
 
 class Post extends React.Component {
 
   constructor() {
     super()
-    this.state = {message: 'ey'}
+    let post = {id: '', title: '', extract: ''}
+    this.state = { post: post}
   }
 
   componentDidMount() {
     let post = {}
-    post.id = this.props.params.id
-    post.title = this.props.params.title
-    post.extract = this.props.params.extract
 
-    this.setState({ post: post })
+    for(let i = 0; i < posts.length; i++){
+      if(posts[i].title == this.props.params.title){        
+        this.setState({ post: posts[i] })
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -29,9 +31,9 @@ class Post extends React.Component {
 
     return (
       <div className="post">
-        <Preview title={this.state.title} 
-                 id={this.state.id} 
-                 extract={this.state.extract} />
+        <Content title={this.state.post.title} 
+              id={this.state.post.id} 
+              extract={this.state.post.extract} />
       </div>
     );
 

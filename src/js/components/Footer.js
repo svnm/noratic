@@ -7,15 +7,6 @@ export default class Browse extends React.Component {
     this.state = {}
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  componentWillReceiveProps(nextProps) {
-  }
-
   render() {
 
     return (

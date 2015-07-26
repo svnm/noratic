@@ -24,6 +24,21 @@
 .extract {
   margin-bottom: 2rem;
 }
+
+code {
+  text-align: left;
+}
+
+a {
+  color: #028482;
+  text-decoration: none;  
+}
+
+a:hover {
+  color: #11DFC7;
+  text-decoration: none;  
+}
+
 /*  End ––––––––––––––––––––––––––––––––––––––––––– */
 
 
@@ -42,7 +57,7 @@
 }
 
 .header .description {
-  opacity: .8;
+  color: #fff;
   font-size: 3rem;
 }
 /*  End ––––––––––––––––––––––––––––––––––––––––––– */

@@ -14,7 +14,7 @@ export default class Preview extends React.Component {
           
           <Link className="button button-primary" 
                 to='post' 
-                params={ { id: this.props.id, title: this.props.title } }>
+                params={ { title: this.props.title } }>
             more
           </Link>
   
@@ -24,19 +24,3 @@ export default class Preview extends React.Component {
     );
   }
 }
-
-/*
-import PostContent from "./content";
-import TagsList from "./tags";
-
-      <section className="page preview">
-        <PostDate date={page.createdAt}/>
-
-        <h2>{page.title}</h2>
-
-        <PostContent body={page.extract} />
-
-        <a href={page.path}>Keep reading -&gt;</a>
-        <TagsList tags={page.tags} />
-      </section>
-*/

@@ -7,17 +7,12 @@ export default class Header extends React.Component {
     this.state = {}
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
   render() {
 
     return(
 
       <div className="section header">
+        <a href='/'>
         <div className="container">
           <div className="row">
             <div className="column">
@@ -26,6 +21,7 @@ export default class Header extends React.Component {
             </div>
           </div>
         </div>
+        </a>
       </div>
 
     )

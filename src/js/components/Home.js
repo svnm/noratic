@@ -10,15 +10,6 @@ class Home extends React.Component {
     this.state = { posts: posts  }
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  componentWillReceiveProps(nextProps) {
-  }
-
   render() {
 
     let previewList = this.state.posts.map( (p, i) => {

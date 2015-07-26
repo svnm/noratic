@@ -11,5 +11,3 @@ module.exports = {
     ]
   }
 };
-
-/* now get all css and img into lib/public */
