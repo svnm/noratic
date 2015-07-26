@@ -1,0 +1,99 @@
+/* Shared
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button {
+  border-radius: 100px;
+}
+
+.button.button-primary {
+  background-color: #028482;
+  border-color: #028482;
+}
+
+.button.button-primary:hover {
+  background-color: #11DFC7;
+  border-color: #11DFC7;  
+}
+
+.section {
+  padding: 6rem 0 6rem;
+  text-align: center;
+}
+
+.title,
+.description {
+  margin-bottom: 2rem;
+}
+/*  End ––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.header {
+  background-image: url('../img/values-bg.jpg');
+  background-size: cover;
+  color: #fff;
+  padding-bottom: 5rem;
+}
+
+.header .title {
+  color: #11DFC7;
+  font-size: 3.5rem;
+}
+
+.header .description {
+  opacity: .8;
+  font-size: 3rem;
+}
+/*  End ––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Post
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.post {
+  border-bottom: 1px solid #ddd;
+}
+/*  End ––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.footer {
+  color: #fff;
+  background-color: #028482;
+  padding: 2rem;
+}
+
+.footer .description { 
+  margin-bottom: 2rem;
+}
+/*  End ––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Larger than 550 */
+@media (min-width: 550px) {
+
+  .footer {
+    padding: 2rem;
+  }
+}
+
+/* Larger than 750 */
+@media (min-width: 750px) {
+
+  .footer {
+    padding: 2rem;
+  }
+
+}
+
+/* Larger than 1000 */
+@media (min-width: 1000px) {
+
+  .footer {
+    padding: 2rem;
+  }
+}
+/*  End ––––––––––––––––––––––––––––––––––––––––––– */

@@ -1,31 +1,43 @@
-import Sidebar from "./sidebar";
-import Intro from "./intro";
+import React from 'react/addons'
 
-export default class Layout extends React.Component {
+// components
+import Header from './Header'
+import Footer from './Footer'
+
+let TransitionGroup = React.addons.CSSTransitionGroup;
+let { RouteHandler, Link } = require('react-router')
+
+class Layout extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {};
+  }
 
   render() {
-    var Article = this.props.article;
 
     return (
-      <body>
-        <header>
-          <div className="paddings">
-            <a href="/" className="logo">{settings.title}</a>
-            <Intro/>
-          </div>
-        </header>
-        <main>
-          <div className="paddings">
-            <Article />
-            <Sidebar />
-          </div>
-        </main>
-        <footer>
-          <div className="paddings">
-            <p>Copyright (C) 2012-{new Date().getFullYear()} {settings.author}</p>
-          </div>
-        </footer>
-      </body>
+
+      <div id="main">
+
+        <Header />
+
+        <div className="content">
+
+          <TransitionGroup component="div" transitionName="page-transition">
+            <RouteHandler {...this.props} />
+          </TransitionGroup>
+          {/* child routes show up here */}
+        </div>
+
+        <Footer />
+
+      </div>
+
     );
   }
+
 }
+
+
+module.exports = Layout

@@ -1,3 +1,5 @@
+/* THis is Post now... */
+
 import PageStore from ???;
 import PostContent from "./content";
 import TagsList from "./tags";

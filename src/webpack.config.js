@@ -1,8 +1,9 @@
 module.exports = {
   entry: './src/js/main.js',
   output: {
-  	path: './src/js/',
-    filename: 'bundle.js'       
+    filename: 'bundle.js',
+    path: './src/public/',
+    publicPath: 'public'
   },
   module: {
     loaders: [
@@ -10,3 +11,5 @@ module.exports = {
     ]
   }
 };
+
+/* now get all css and img into lib/public */

@@ -1,7 +1,4 @@
-/* 
-   we might not need this to be complex at all, 
-   as we will just markdown to html our content?
-*/
+/* just markdown to html our content */
 
 import Markdown from "utils/markdown";
 import Tagger from "utils/tagger";
@@ -29,7 +26,7 @@ export default class PostContent extends React.Component {
     );
   }
   
-
+  /*
   linkifyTags(text) {
     return Tagger.replace(text, function(tag, name) {
       return React.renderToString(<TagLink text={tag} name={name} />);
@@ -87,4 +84,7 @@ export default class PostContent extends React.Component {
       callback(nodes[i]);
     }
   }
+  */
+
+
 }

@@ -2,28 +2,18 @@ import React from 'react';
 import Router from 'react-router';  
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
-import LoginHandler from './components/Login.js';
+import Layout from './components/Layout'
+import Post from './components/Post'
+import Home from './components/Home'
 
-let App = React.createClass({  
-  render() {
-    return (
-      <div className="nav">
-        <Link to="app">Home</Link>
-        <Link to="login">Login</Link>
-
-        {/* this is the importTant part */}
-        <RouteHandler/>
-      </div>
-    );
-  }
-});
 
 let routes = (  
-  <Route name="app" path="/" handler={App}>
-    <Route name="login" path="/login" handler={LoginHandler}/>
+  <Route name='layout' path='/' handler={Layout}>
+  	<DefaultRoute name='home' handler={Home} />
+    <Route name='post' path='/post/:id?' handler={Post} />
   </Route>
 );
 
 Router.run(routes, function (Handler) {  
-  React.render(<Handler/>, document.body);
+  React.render(<Handler/>, document.getElementById('app'));
 });

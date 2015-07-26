@@ -5,11 +5,11 @@ export default class NotFound extends React.Component {
         <h1>404 Error</h1>
 
         <p>
-          Page is not found :(
+          Page not found :(
         </p>
 
         <p>
-          <a href="/">But there are pleny of other awesome pages!</a>
+          <a href="/">Sorry you have lost your way!</a>
         </p>
       </article>
     );

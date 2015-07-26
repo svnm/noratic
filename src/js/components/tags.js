@@ -1,6 +1,6 @@
 import TagLink from "components/tag_link";
 
-export default class TagsList extends React.Component {
+export default class Tags extends React.Component {
   render() {
     var tags = this.props.tags;
 
