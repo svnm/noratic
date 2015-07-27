@@ -1,6 +1,6 @@
 {
   "name": "noratic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a static site generator using node and react",
   "main": "index.js",
   "scripts": {
