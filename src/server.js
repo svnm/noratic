@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
-
-port = process.env.PORT || 5000;
+var port = process.env.PORT || 5000;
 
 express()
   .use('/public', express.static(__dirname + '/public'))

@@ -2,12 +2,14 @@
   "name": "noratic",
   "version": "1.0.3",
   "description": "a static site generator using node and react",
-  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "noratic": "index.js"
+  },
   "scripts": {
     "test": "tape test/*.js",
-    "build": "babel src --out-dir lib",
-    "example": "webpack --config ./src/webpack.config.js",
-    "serve": "node ./src/server.js",
+    "example": "webpack --config ./site/webpack.config.js",
+    "serve": "node ./site/server.js",
     "start": "npm run example && npm run serve"
   },
   "repository": {
