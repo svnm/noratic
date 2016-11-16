@@ -1,30 +1,18 @@
 #! /usr/bin/env node
 
-var userArgs = process.argv.slice(2);
-var searchPattern = userArgs[0];
+var ncp = require('ncp').ncp;
+ncp.limit = 16;
 
+var userArgs = process.argv.slice(2);
 if(userArgs[0] === "build"){
 
-	console.log('noratic building src to sites');	
+	console.log('noratic building src to sites');
 
-	var exec = require('child_process').exec;
-
-	/*
-	exec('cp -r ~/xyz/projects/noratic/src/ ~/xyz/projects/noratic/site', 
-		function(err, stdout, stderr) {
-		}
-	);
-	*/
-
-	exec('node ~/xyz/projects/noratic/site/server.js', 
-		function(err, stdout, stderr) {
-			console.log('stdout: ', stdout);
-			console.log('stderr: ', stderr);
-		    if (error !== null) {
-		        console.log('exec error: ', error);
-		    }
-		}
-	);
-
+  ncp('src', 'site', function (err) {
+   if (err) {
+     return console.error(err);
+   }
+   console.log('done!');
+  });
 
 }

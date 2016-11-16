@@ -36,6 +36,7 @@
     "express": "^4.7.2"
   },
   "dependencies": {
+    "ncp": "^2.0.0",
     "react-markdown-to-html": "^1.0.11"
   }
 }
